@@ -1,19 +1,27 @@
 import UIKit
 
+struct ChatTableViewCellViewModel {
+    let title: String
+    let lastMessage: String
+    let lastMessageDate: String
+    let image: UIImage?
+}
+
 final class ChatTableViewCell: UITableViewCell {
-    let profileImageView: UIImageView = {
+    let chatImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 25
         imageView.image = UIImage(named: "default_avatar")
         imageView.clipsToBounds = true
         imageView.backgroundColor = .green
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
     let chatTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .headline, compatibleWith: nil)
-        label.text = "William Charles Schneider"
+        label.text = "Chat title label"
         label.numberOfLines = 1
         return label
     }()
@@ -21,7 +29,7 @@ final class ChatTableViewCell: UITableViewCell {
     let lastMessageLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body, compatibleWith: nil)
-        label.text = "The Only Difference Between Me And A Homeless Man Is This Job. I Will Do Whatever It Takes To Survive Like I Did When I Was A Homeless Man"
+        label.text = "Last message label"
         label.numberOfLines = 2
         label.textColor = .secondaryLabel
         return label
@@ -30,7 +38,7 @@ final class ChatTableViewCell: UITableViewCell {
     let lastMessageDateLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body, compatibleWith: nil)
-        label.text = "13/04/22"
+        label.text = "Last message date label"
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.numberOfLines = 1
         label.textColor = .secondaryLabel
@@ -49,12 +57,24 @@ final class ChatTableViewCell: UITableViewCell {
         super.init(coder: coder)
     }
 
+    func setupData(
+        title: String,
+        lastMessage: String,
+        lastMessageDate: String,
+        image: UIImage?
+    ) {
+        chatTitleLabel.text = title
+        lastMessageLabel.text = lastMessage
+        lastMessageDateLabel.text = lastMessageDate
+        chatImageView.image = image
+    }
+
     private func setupViewStyle() {
         backgroundColor = .systemBackground
     }
 
     private func setupViewHierarchy() {
-        contentView.addSubview(profileImageView)
+        contentView.addSubview(chatImageView)
         contentView.addSubview(chatTitleLabel)
         contentView.addSubview(lastMessageLabel)
         contentView.addSubview(lastMessageDateLabel)
@@ -63,15 +83,15 @@ final class ChatTableViewCell: UITableViewCell {
     private func setupViewConstraints() {
         contentView.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         NSLayoutConstraint.activate([
-            profileImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            profileImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-            profileImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 16),
-            profileImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -16),
-            profileImageView.widthAnchor.constraint(equalToConstant: 50),
-            profileImageView.heightAnchor.constraint(equalToConstant: 50),
+            chatImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            chatImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+            chatImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 16),
+            chatImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -16),
+            chatImageView.widthAnchor.constraint(equalToConstant: 50),
+            chatImageView.heightAnchor.constraint(equalToConstant: 50),
 
             chatTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            chatTitleLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 16),
+            chatTitleLabel.leftAnchor.constraint(equalTo: chatImageView.rightAnchor, constant: 16),
 
             lastMessageLabel.topAnchor.constraint(equalTo: chatTitleLabel.bottomAnchor),
             lastMessageLabel.leftAnchor.constraint(equalTo: chatTitleLabel.leftAnchor),
