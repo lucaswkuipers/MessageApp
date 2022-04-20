@@ -10,7 +10,7 @@ struct ChatTableViewCellViewModel {
 final class ChatTableViewCell: UITableViewCell {
     let chatImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 25
+        imageView.layer.cornerRadius = 30
         imageView.image = UIImage(named: "default_avatar")
         imageView.clipsToBounds = true
         imageView.backgroundColor = .green
@@ -87,8 +87,8 @@ final class ChatTableViewCell: UITableViewCell {
             chatImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             chatImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 16),
             chatImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -16),
-            chatImageView.widthAnchor.constraint(equalToConstant: 50),
-            chatImageView.heightAnchor.constraint(equalToConstant: 50),
+            chatImageView.widthAnchor.constraint(equalToConstant: 60),
+            chatImageView.heightAnchor.constraint(equalToConstant: 60),
 
             chatTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             chatTitleLabel.leftAnchor.constraint(equalTo: chatImageView.rightAnchor, constant: 16),
