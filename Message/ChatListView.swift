@@ -1,6 +1,12 @@
 import UIKit
 
-final class ChatsView: UIView {
+protocol ChatListViewDelegate: AnyObject {
+    func didSelectChat(with title: String)
+}
+
+final class ChatListView: UIView {
+    weak var delegate: ChatListViewDelegate?
+
     let viewModels: [ChatTableViewCellViewModel] = [
         ChatTableViewCellViewModel(
             title: "William Charles Schneider",
@@ -97,7 +103,7 @@ final class ChatsView: UIView {
     }
 }
 
-extension ChatsView: UITableViewDelegate, UITableViewDataSource {
+extension ChatListView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }
@@ -112,5 +118,16 @@ extension ChatsView: UITableViewDelegate, UITableViewDataSource {
             image: viewModel.image
         )
         return  cell ?? ChatTableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let title = viewModels[indexPath.row].title
+        delegate?.didSelectChat(with: title)
+    }
+}
+
+extension ChatListView: GenericViewControllerDelegate {
+    func viewWillAppear() {
+        chatsTableView.deselectSelectedRow(animated: true)
     }
 }

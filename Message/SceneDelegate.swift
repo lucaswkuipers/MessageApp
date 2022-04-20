@@ -6,9 +6,12 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
-        let view = ChatsView()
+        let view = ChatListView()
         let viewController = GenericViewController(with: view)
-        window?.rootViewController = viewController
+        view.delegate = viewController
+        viewController.delegate = view
+        viewController.title = "Chats"
+        window?.rootViewController = UINavigationController(rootViewController: viewController)
         window?.makeKeyAndVisible()
     }
 }

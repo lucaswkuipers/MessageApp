@@ -11,4 +11,11 @@ extension UITableView {
             for: indexPath
         ) as? Cell ?? Cell()
     }
+
+    func deselectSelectedRow(animated: Bool)
+    {
+        guard let indexPathForSelectedRow = self.indexPathForSelectedRow else { return }
+        deselectRow(at: indexPathForSelectedRow, animated: animated)
+    }
+
 }

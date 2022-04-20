@@ -96,7 +96,7 @@ final class ChatTableViewCell: UITableViewCell {
             lastMessageLabel.topAnchor.constraint(equalTo: chatTitleLabel.bottomAnchor),
             lastMessageLabel.leftAnchor.constraint(equalTo: chatTitleLabel.leftAnchor),
             lastMessageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-            lastMessageLabel.rightAnchor.constraint(equalTo: chatTitleLabel.rightAnchor),
+            lastMessageLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -40),
 
             lastMessageDateLabel.topAnchor.constraint(equalTo: chatTitleLabel.topAnchor),
             lastMessageDateLabel.leftAnchor.constraint(greaterThanOrEqualTo: chatTitleLabel.rightAnchor),
