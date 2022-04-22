@@ -4,27 +4,27 @@ final class ChatView: UIView {
     var currentIndex = 0
     let nextMessages: [Message] = [
         Message(
-            text: "1 - false",
+            text: "Lore ipsum Lore ipsum Lore ipsum Lore ipsum",
             isSender: false
         ),
         Message(
-            text: "2 - true; Some text goes here... let's see the dynamic size",
+            text: "Lore ipsum Lore ipsum",
             isSender: true
         ),
         Message(
-            text: "3 - false; Yes, text is interesting.",
+            text: "Lore ipsum Lore ipsum",
             isSender: false
         ),
         Message(
-            text: "4 - true; Yes, text is interesting. Yes, text is interesting.",
+            text: "Lorem ipsum Lore ipsum Lore ipsum",
             isSender: true
         ),
         Message(
-            text: "5 - true; Lorem ipsum ipsum",
+            text: "Lore ipsum Lore ipsum Lore ipsum Lore ipsum",
             isSender: true
         ),
         Message(
-            text: "6 - false",
+            text: "Lorem",
             isSender: false
         ),
         Message(
@@ -68,28 +68,28 @@ final class ChatView: UIView {
             isSender: false
         ),
         Message(
-            text: "17 - false; Lore ipsum ipsum Lorem ",
-            isSender: false
+            text: "17 - true; Lore ipsum ipsum Lorem ",
+            isSender: true
         ),
         Message(
-            text: "18 - false; Lore ipsum ipsum Lorem ",
-            isSender: false
+            text: "18 - true; Lore ipsum ipsum Lorem ",
+            isSender: true
         ),
         Message(
             text: "19 - false; Lore ipsum ipsum Lorem ",
             isSender: false
         ),
         Message(
-            text: "20 - false; Lore ipsum ipsum Lorem ",
-            isSender: false
+            text: "20 - true; Lore ipsum ipsum Lorem ",
+            isSender: true
         ),
         Message(
             text: "21 - false; Lore ipsum ipsum Lorem ",
             isSender: false
         ),
         Message(
-            text: "22 - false; Lore ipsum ipsum Lorem ",
-            isSender: false
+            text: "22 - true; Lore ipsum ipsum Lorem ",
+            isSender: true
         ),
         Message(
             text: "23 - false; Lore ipsum ipsum Lorem ",
@@ -116,8 +116,8 @@ final class ChatView: UIView {
             isSender: false
         ),
         Message(
-            text: "29 - false; Lore ipsum ipsum Lorem ",
-            isSender: false
+            text: "29 - true; Lore ipsum ipsum Lorem ",
+            isSender: true
         ),
         Message(
             text: "30 - false; Lore ipsum ipsum Lorem ",
@@ -128,27 +128,59 @@ final class ChatView: UIView {
             isSender: false
         ),
         Message(
-            text: "32 - false; Lore ipsum ipsum Lorem ",
-            isSender: false
+            text: "32 - true; Lore ipsum ipsum Lorem ",
+            isSender: true
         )
     ]
+
     var messages: [Message] = [] {
         didSet {
-            let indexPath = IndexPath(row: messages.count - 1, section: 0)
-            messageCollectionView.insertItems(at: [indexPath])
-//            messageCollectionView.scrollToBottom(animated: true)
+
+            print("CUrrent index \(currentIndex)")
+            print("Messages \(messages)")
+            guard let newMessage = messages[safeIndex: currentIndex - 1] else { return }
+            let newMessageView = MessageView()
+            if currentIndex > 1 {
+                let lastMessage = messages[currentIndex - 2]
+                let lastMessageWasSender = lastMessage.isSender
+
+                let currentMessageIsSender = newMessage.isSender
+
+                if lastMessageWasSender != currentMessageIsSender {
+                    let spacingView = UIView()
+                    spacingView.translatesAutoresizingMaskIntoConstraints = false
+                    spacingView.heightAnchor.constraint(equalToConstant: 15).isActive = true
+                    messageStackView.addArrangedSubview(spacingView)
+                } else {
+                    let spacingView = UIView()
+                    spacingView.translatesAutoresizingMaskIntoConstraints = false
+                    spacingView.heightAnchor.constraint(equalToConstant: 5).isActive = true
+                    messageStackView.addArrangedSubview(spacingView)
+                }
+            }
+            newMessageView.message = newMessage
+            newMessageView.translatesAutoresizingMaskIntoConstraints = false
+//            newMessageView.backgroundColor = .red
+            newMessageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+//            newMessageView.contentLabel.text = "Hellloooo"
+            messageStackView.addArrangedSubview(newMessageView)
+
+            DispatchQueue.main.async { [weak self] in
+                self?.messageScrollView.scrollToBottom(animated: true)
+            }
         }
     }
 
-    let messageCollectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .vertical
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.minimumLineSpacing = 5
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.register(MessageCollectionViewCell.self, forCellWithReuseIdentifier: MessageCollectionViewCell.identifier)
-        return collectionView
+    let messageStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+//        stackView.spacing = 5
+        return stackView
+    }()
+
+    let messageScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
     }()
 
     init() {
@@ -157,11 +189,7 @@ final class ChatView: UIView {
         setupViewHierarchy()
         setupViewConstraints()
 
-        messageCollectionView.delegate = self
-        messageCollectionView.dataSource = self
-
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(addMessage), userInfo: nil, repeats: true)
-//        NotificationCenter.default.addObserver(self, selector: #selector(preferredContentSizeChanged(_:)), name: UIContentSizeCategory.didChangeNotification, object: nil)
+        Timer.scheduledTimer(timeInterval: Double.random(in: 0.3...2), target: self, selector: #selector(addMessage), userInfo: nil, repeats: false)
     }
 
     @objc private func addMessage() {
@@ -171,6 +199,8 @@ final class ChatView: UIView {
         currentIndex += 1
 
         messages.append(newMessage)
+
+        Timer.scheduledTimer(timeInterval: Double.random(in: 0.8...2), target: self, selector: #selector(addMessage), userInfo: nil, repeats: false)
     }
 
     required init?(coder: NSCoder) {
@@ -182,56 +212,23 @@ final class ChatView: UIView {
     }
 
     private func setupViewHierarchy() {
-        addSubview(messageCollectionView)
+        addSubview(messageScrollView)
+        messageScrollView.addSubview(messageStackView)
     }
 
     private func setupViewConstraints() {
-        subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        messageScrollView.translatesAutoresizingMaskIntoConstraints = false
+        messageStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            messageCollectionView.topAnchor.constraint(equalTo: topAnchor),
-            messageCollectionView.leftAnchor.constraint(equalTo: leftAnchor),
-            messageCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            messageCollectionView.rightAnchor.constraint(equalTo: rightAnchor)
+            messageScrollView.topAnchor.constraint(equalTo: topAnchor),
+            messageScrollView.leftAnchor.constraint(equalTo: leftAnchor),
+            messageScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            messageScrollView.rightAnchor.constraint(equalTo: rightAnchor),
+
+            messageStackView.topAnchor.constraint(equalTo: messageScrollView.topAnchor),
+            messageStackView.leftAnchor.constraint(equalTo: messageScrollView.leftAnchor),
+            messageStackView.bottomAnchor.constraint(equalTo: messageScrollView.bottomAnchor),
+            messageStackView.rightAnchor.constraint(equalTo: messageScrollView.rightAnchor)
         ])
-    }
-}
-
-extension ChatView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let message = messages[safeIndex: indexPath.row] else { fatalError() }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MessageCollectionViewCell.identifier, for: indexPath) as? MessageCollectionViewCell
-        cell?.message = message
-        return cell ?? MessageCollectionViewCell()
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let message = messages[safeIndex: indexPath.row] else { return CGSize() }
-        let font: UIFont = .systemFont(ofSize: 24)
-        let width = UIScreen.main.bounds.width
-        let height = message.text.height(withConstrainedWidth: width - 32 - 16, font: font)
-        return CGSize(
-            width: width,
-            height: height + 16
-        )
-    }
-}
-
-extension String {
-    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-
-        return ceil(boundingBox.height)
-    }
-
-    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-
-        return ceil(boundingBox.width)
     }
 }

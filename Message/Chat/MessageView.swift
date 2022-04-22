@@ -1,6 +1,6 @@
 import UIKit
 
-final class MessageCollectionViewCell: UICollectionViewCell {
+final class MessageView: UIView {
     var hasSetupBefore = false
     var message: Message? {
         didSet {
@@ -15,7 +15,7 @@ final class MessageCollectionViewCell: UICollectionViewCell {
 
     let containerView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 12
         return view
     }()
 
@@ -42,7 +42,7 @@ final class MessageCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupViewHierarchy() {
-        contentView.addSubview(containerView)
+        addSubview(containerView)
         containerView.addSubview(contentLabel)
     }
 
@@ -53,10 +53,8 @@ final class MessageCollectionViewCell: UICollectionViewCell {
         contentLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            containerView.topAnchor.constraint(equalTo: topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
             contentLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
             contentLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 8),
@@ -67,13 +65,13 @@ final class MessageCollectionViewCell: UICollectionViewCell {
 
         if message.isSender {
             NSLayoutConstraint.activate([
-                containerView.leftAnchor.constraint(greaterThanOrEqualTo: contentView.leftAnchor, constant: 32),
-                containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8)
+                containerView.leftAnchor.constraint(greaterThanOrEqualTo: leftAnchor, constant: 32),
+                containerView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8)
             ])
         } else {
             NSLayoutConstraint.activate([
-                containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
-                containerView.rightAnchor.constraint(lessThanOrEqualTo: contentView.rightAnchor, constant: -32)
+                containerView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
+                containerView.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -32)
             ])
         }
     }
