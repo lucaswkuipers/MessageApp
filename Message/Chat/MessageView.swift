@@ -22,7 +22,8 @@ final class MessageView: UIView {
     let contentLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 24)
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
 
@@ -75,6 +76,4 @@ final class MessageView: UIView {
             ])
         }
     }
-
-
 }

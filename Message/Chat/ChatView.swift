@@ -176,7 +176,7 @@ final class ChatView: UIView {
         let scrollView = UIScrollView()
         return scrollView
     }()
-
+  
     init() {
         super.init(frame: .zero)
         setupViewStyle()
@@ -184,16 +184,18 @@ final class ChatView: UIView {
         setupViewConstraints()
 
         Timer.scheduledTimer(timeInterval: Double.random(in: 0.3...2), target: self, selector: #selector(addMessage), userInfo: nil, repeats: false)
-        Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(scrollToBottom), userInfo: nil, repeats: true)
+//        Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(scrollToBottom), userInfo: nil, repeats: true)
 
     }
 
     @objc private func scrollToBottom() {
+        print("messageScrollView.contentOffset.y \(messageScrollView.contentOffset.y)")
+        print("messageScrollView.frame.height \(messageScrollView.frame.height)")
         DispatchQueue.main.async { [weak self] in
             self?.messageScrollView.scrollToBottom(animated: true)
         }
     }
-
+ 
     @objc private func addMessage() {
         print("Add message")
 
@@ -203,6 +205,7 @@ final class ChatView: UIView {
         messages.append(newMessage)
 
         Timer.scheduledTimer(timeInterval: Double.random(in: 0.8...2), target: self, selector: #selector(addMessage), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.03, target: self, selector: #selector(scrollToBottom), userInfo: nil, repeats: false)
     }
 
     required init?(coder: NSCoder) {
