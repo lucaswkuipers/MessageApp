@@ -69,9 +69,12 @@ final class GenericViewController: UIViewController {
 }
 
 extension GenericViewController: ChatListViewDelegate {
-    func didSelectChat(with title: String) {
-        let chatViewController = GenericViewController(with: ChatView())
-        chatViewController.title = title
+    func didSelectChat(_ chat: Chat) {
+        let view = ChatView()
+        let chatViewController = GenericViewController(with: view)
+        view.messages = chat.messages
+        chatViewController.title = chat.title
+
         navigationController?.pushViewController(chatViewController, animated: true)
     }
 }

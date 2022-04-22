@@ -10,6 +10,7 @@
 		EC0DB0FB2811155F000C0FE6 /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DB0FA2811155F000C0FE6 /* UIScrollView+Extensions.swift */; };
 		EC0DB0FE28111581000C0FE6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DB0FD28111581000C0FE6 /* Message.swift */; };
 		EC0DB10028111597000C0FE6 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DB0FF28111597000C0FE6 /* MessageView.swift */; };
+		EC907BEA2812978E00C79323 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC907BE92812978E00C79323 /* Chat.swift */; };
 		ECB7FD87280FA97000AD79CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FD86280FA97000AD79CB /* AppDelegate.swift */; };
 		ECB7FD89280FA97000AD79CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FD88280FA97000AD79CB /* SceneDelegate.swift */; };
 		ECB7FD8B280FA97000AD79CB /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FD8A280FA97000AD79CB /* GenericViewController.swift */; };
@@ -48,6 +49,7 @@
 		EC0DB0FA2811155F000C0FE6 /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		EC0DB0FD28111581000C0FE6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		EC0DB0FF28111597000C0FE6 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		EC907BE92812978E00C79323 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		ECB7FD83280FA97000AD79CB /* Message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Message.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7FD86280FA97000AD79CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECB7FD88280FA97000AD79CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				EC0DB0FD28111581000C0FE6 /* Message.swift */,
+				EC907BE92812978E00C79323 /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				ECB7FDB7280FB36700AD79CB /* ChatListView.swift in Sources */,
 				ECD6AB10280FED8000151A80 /* ChatView.swift in Sources */,
 				ECB7FDBE280FC4E800AD79CB /* ChatTableViewCell.swift in Sources */,
+				EC907BEA2812978E00C79323 /* Chat.swift in Sources */,
 				ECB7FD87280FA97000AD79CB /* AppDelegate.swift in Sources */,
 				EC0DB0FE28111581000C0FE6 /* Message.swift in Sources */,
 				EC0DB0FB2811155F000C0FE6 /* UIScrollView+Extensions.swift in Sources */,

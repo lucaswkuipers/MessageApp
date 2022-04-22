@@ -135,7 +135,6 @@ final class ChatView: UIView {
 
     var messages: [Message] = [] {
         didSet {
-
             print("CUrrent index \(currentIndex)")
             print("Messages \(messages)")
             guard let newMessage = messages[safeIndex: currentIndex - 1] else { return }
@@ -164,17 +163,12 @@ final class ChatView: UIView {
             newMessageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
 //            newMessageView.contentLabel.text = "Hellloooo"
             messageStackView.addArrangedSubview(newMessageView)
-
-            DispatchQueue.main.async { [weak self] in
-                self?.messageScrollView.scrollToBottom(animated: true)
-            }
         }
     }
 
     let messageStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-//        stackView.spacing = 5
         return stackView
     }()
 
@@ -190,6 +184,14 @@ final class ChatView: UIView {
         setupViewConstraints()
 
         Timer.scheduledTimer(timeInterval: Double.random(in: 0.3...2), target: self, selector: #selector(addMessage), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(scrollToBottom), userInfo: nil, repeats: true)
+
+    }
+
+    @objc private func scrollToBottom() {
+        DispatchQueue.main.async { [weak self] in
+            self?.messageScrollView.scrollToBottom(animated: true)
+        }
     }
 
     @objc private func addMessage() {
