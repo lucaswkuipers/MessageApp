@@ -135,14 +135,13 @@ final class ChatView: UIView {
 
     var messages: [Message] = [] {
         didSet {
-            print("CUrrent index \(currentIndex)")
+            print("Current index \(currentIndex)")
             print("Messages \(messages)")
             guard let newMessage = messages[safeIndex: currentIndex - 1] else { return }
             let newMessageView = MessageView()
             if currentIndex > 1 {
                 let lastMessage = messages[currentIndex - 2]
                 let lastMessageWasSender = lastMessage.isSender
-
                 let currentMessageIsSender = newMessage.isSender
 
                 if lastMessageWasSender != currentMessageIsSender {
@@ -157,12 +156,16 @@ final class ChatView: UIView {
                     messageStackView.addArrangedSubview(spacingView)
                 }
             }
+
             newMessageView.message = newMessage
             newMessageView.translatesAutoresizingMaskIntoConstraints = false
-//            newMessageView.backgroundColor = .red
             newMessageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
-//            newMessageView.contentLabel.text = "Hellloooo"
             messageStackView.addArrangedSubview(newMessageView)
+
+//            let bottomSpacingView = UIView()
+//            bottomSpacingView.translatesAutoresizingMaskIntoConstraints = false
+//            bottomSpacingView.heightAnchor.constraint(equalToConstant: 15).isActive = true
+//            messageStackView.addArrangedSubview(bottomSpacingView)
         }
     }
 
@@ -195,7 +198,7 @@ final class ChatView: UIView {
             self?.messageScrollView.scrollToBottom(animated: true)
         }
     }
- 
+
     @objc private func addMessage() {
         print("Add message")
 
