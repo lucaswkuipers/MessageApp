@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC0DB0FB2811155F000C0FE6 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DB0FA2811155F000C0FE6 /* UIScrollView.swift */; };
+		EC0DB0FE28111581000C0FE6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DB0FD28111581000C0FE6 /* Message.swift */; };
+		EC0DB10028111597000C0FE6 /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DB0FF28111597000C0FE6 /* MessageCollectionViewCell.swift */; };
 		ECB7FD87280FA97000AD79CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FD86280FA97000AD79CB /* AppDelegate.swift */; };
 		ECB7FD89280FA97000AD79CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FD88280FA97000AD79CB /* SceneDelegate.swift */; };
 		ECB7FD8B280FA97000AD79CB /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FD8A280FA97000AD79CB /* GenericViewController.swift */; };
@@ -17,9 +20,11 @@
 		ECB7FDAA280FA97300AD79CB /* MessageUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FDA9280FA97300AD79CB /* MessageUITestsLaunchTests.swift */; };
 		ECB7FDB7280FB36700AD79CB /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FDB6280FB36700AD79CB /* ChatListView.swift */; };
 		ECB7FDB9280FBE5700AD79CB /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FDB8280FBE5700AD79CB /* UITableView+Extensions.swift */; };
-		ECB7FDBC280FBEF800AD79CB /* UITableiewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FDBB280FBEF800AD79CB /* UITableiewCell+Extensions.swift */; };
+		ECB7FDBC280FBEF800AD79CB /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FDBB280FBEF800AD79CB /* UITableViewCell+Extensions.swift */; };
 		ECB7FDBE280FC4E800AD79CB /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7FDBD280FC4E800AD79CB /* ChatTableViewCell.swift */; };
 		ECD6AB10280FED8000151A80 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD6AB0F280FED8000151A80 /* ChatView.swift */; };
+		ECDE28802810D48E00362F4C /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDE287F2810D48E00362F4C /* Array+Extensions.swift */; };
+		ECDE28822810E3BA00362F4C /* UICollectionViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDE28812810E3BA00362F4C /* UICollectionViewCell+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC0DB0FA2811155F000C0FE6 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		EC0DB0FD28111581000C0FE6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		EC0DB0FF28111597000C0FE6 /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECB7FD83280FA97000AD79CB /* Message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Message.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7FD86280FA97000AD79CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECB7FD88280FA97000AD79CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,9 +62,11 @@
 		ECB7FDA9280FA97300AD79CB /* MessageUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ECB7FDB6280FB36700AD79CB /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		ECB7FDB8280FBE5700AD79CB /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
-		ECB7FDBB280FBEF800AD79CB /* UITableiewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableiewCell+Extensions.swift"; sourceTree = "<group>"; };
+		ECB7FDBB280FBEF800AD79CB /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		ECB7FDBD280FC4E800AD79CB /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		ECD6AB0F280FED8000151A80 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		ECDE287F2810D48E00362F4C /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		ECDE28812810E3BA00362F4C /* UICollectionViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC0DB0FC28111575000C0FE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC0DB0FD28111581000C0FE6 /* Message.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		ECB7FD7A280FA97000AD79CB = {
 			isa = PBXGroup;
 			children = (
@@ -107,17 +125,11 @@
 		ECB7FD85280FA97000AD79CB /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				ECD6AB0E280FEC8D00151A80 /* New Group */,
+				EC0DB0FC28111575000C0FE6 /* Model */,
+				ECDE28842811123E00362F4C /* Application */,
 				ECB7FDBA280FBED500AD79CB /* Extensions */,
-				ECB7FD86280FA97000AD79CB /* AppDelegate.swift */,
-				ECB7FD88280FA97000AD79CB /* SceneDelegate.swift */,
-				ECB7FD8A280FA97000AD79CB /* GenericViewController.swift */,
-				ECB7FD8F280FA97200AD79CB /* Assets.xcassets */,
-				ECB7FD91280FA97200AD79CB /* LaunchScreen.storyboard */,
-				ECB7FD94280FA97200AD79CB /* Info.plist */,
-				ECB7FDB6280FB36700AD79CB /* ChatListView.swift */,
-				ECB7FDBD280FC4E800AD79CB /* ChatTableViewCell.swift */,
-				ECD6AB0F280FED8000151A80 /* ChatView.swift */,
+				ECDE28832811122700362F4C /* Chat */,
+				ECD6AB0E280FEC8D00151A80 /* ChatList */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -142,17 +154,44 @@
 		ECB7FDBA280FBED500AD79CB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				ECDE287F2810D48E00362F4C /* Array+Extensions.swift */,
 				ECB7FDB8280FBE5700AD79CB /* UITableView+Extensions.swift */,
-				ECB7FDBB280FBEF800AD79CB /* UITableiewCell+Extensions.swift */,
+				ECB7FDBB280FBEF800AD79CB /* UITableViewCell+Extensions.swift */,
+				ECDE28812810E3BA00362F4C /* UICollectionViewCell+Extensions.swift */,
+				EC0DB0FA2811155F000C0FE6 /* UIScrollView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		ECD6AB0E280FEC8D00151A80 /* New Group */ = {
+		ECD6AB0E280FEC8D00151A80 /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
+				ECB7FDB6280FB36700AD79CB /* ChatListView.swift */,
+				ECB7FDBD280FC4E800AD79CB /* ChatTableViewCell.swift */,
 			);
-			path = "New Group";
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		ECDE28832811122700362F4C /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				ECD6AB0F280FED8000151A80 /* ChatView.swift */,
+				EC0DB0FF28111597000C0FE6 /* MessageCollectionViewCell.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		ECDE28842811123E00362F4C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7FD86280FA97000AD79CB /* AppDelegate.swift */,
+				ECB7FD88280FA97000AD79CB /* SceneDelegate.swift */,
+				ECB7FD8A280FA97000AD79CB /* GenericViewController.swift */,
+				ECB7FD8F280FA97200AD79CB /* Assets.xcassets */,
+				ECB7FD91280FA97200AD79CB /* LaunchScreen.storyboard */,
+				ECB7FD94280FA97200AD79CB /* Info.plist */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,12 +325,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB7FDB9280FBE5700AD79CB /* UITableView+Extensions.swift in Sources */,
-				ECB7FDBC280FBEF800AD79CB /* UITableiewCell+Extensions.swift in Sources */,
+				ECDE28802810D48E00362F4C /* Array+Extensions.swift in Sources */,
+				ECB7FDBC280FBEF800AD79CB /* UITableViewCell+Extensions.swift in Sources */,
 				ECB7FD8B280FA97000AD79CB /* GenericViewController.swift in Sources */,
+				EC0DB10028111597000C0FE6 /* MessageCollectionViewCell.swift in Sources */,
+				ECDE28822810E3BA00362F4C /* UICollectionViewCell+Extensions.swift in Sources */,
 				ECB7FDB7280FB36700AD79CB /* ChatListView.swift in Sources */,
 				ECD6AB10280FED8000151A80 /* ChatView.swift in Sources */,
 				ECB7FDBE280FC4E800AD79CB /* ChatTableViewCell.swift in Sources */,
 				ECB7FD87280FA97000AD79CB /* AppDelegate.swift in Sources */,
+				EC0DB0FE28111581000C0FE6 /* Message.swift in Sources */,
+				EC0DB0FB2811155F000C0FE6 /* UIScrollView.swift in Sources */,
 				ECB7FD89280FA97000AD79CB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,7 +507,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DCMZQX3HM9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Message/Info.plist;
+				INFOPLIST_FILE = Message/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
@@ -492,7 +536,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DCMZQX3HM9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Message/Info.plist;
+				INFOPLIST_FILE = Message/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";

@@ -69,8 +69,6 @@ final class ChatListView: UIView {
     init() {
         super.init(frame: .zero)
 
-        backgroundColor = .systemPink
-
         setupViewStyle()
         setupViewHierarchy()
         setupViewConstraints()
@@ -109,15 +107,17 @@ extension ChatListView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.identifier, for: indexPath) as? ChatTableViewCell
-        let viewModel = viewModels[indexPath.row]
-        cell?.setupData(
+        let cell = tableView.dequeue(cell: ChatTableViewCell(), at: indexPath)
+        guard let viewModel = viewModels[safeIndex: indexPath.row] else { return cell }
+
+        cell.setupData(
             title: viewModel.title,
             lastMessage: viewModel.lastMessage,
             lastMessageDate: viewModel.lastMessageDate,
             image: viewModel.image
         )
-        return  cell ?? ChatTableViewCell()
+
+        return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
