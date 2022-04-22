@@ -161,11 +161,6 @@ final class ChatView: UIView {
             newMessageView.translatesAutoresizingMaskIntoConstraints = false
             newMessageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
             messageStackView.addArrangedSubview(newMessageView)
-
-//            let bottomSpacingView = UIView()
-//            bottomSpacingView.translatesAutoresizingMaskIntoConstraints = false
-//            bottomSpacingView.heightAnchor.constraint(equalToConstant: 15).isActive = true
-//            messageStackView.addArrangedSubview(bottomSpacingView)
         }
     }
 
@@ -187,8 +182,6 @@ final class ChatView: UIView {
         setupViewConstraints()
 
         Timer.scheduledTimer(timeInterval: Double.random(in: 0.3...2), target: self, selector: #selector(addMessage), userInfo: nil, repeats: false)
-//        Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(scrollToBottom), userInfo: nil, repeats: true)
-
     }
 
     @objc private func scrollToBottom() {
@@ -236,7 +229,9 @@ final class ChatView: UIView {
             messageStackView.topAnchor.constraint(equalTo: messageScrollView.topAnchor),
             messageStackView.leftAnchor.constraint(equalTo: messageScrollView.leftAnchor),
             messageStackView.bottomAnchor.constraint(equalTo: messageScrollView.bottomAnchor),
-            messageStackView.rightAnchor.constraint(equalTo: messageScrollView.rightAnchor)
+            messageStackView.rightAnchor.constraint(equalTo: messageScrollView.rightAnchor),
+
+            messageStackView.widthAnchor.constraint(equalTo: messageScrollView.widthAnchor)
         ])
     }
 }
