@@ -147,12 +147,7 @@ final class ChatView: UIView {
                 if lastMessageWasSender != currentMessageIsSender {
                     let spacingView = UIView()
                     spacingView.translatesAutoresizingMaskIntoConstraints = false
-                    spacingView.heightAnchor.constraint(equalToConstant: 15).isActive = true
-                    messageStackView.addArrangedSubview(spacingView)
-                } else {
-                    let spacingView = UIView()
-                    spacingView.translatesAutoresizingMaskIntoConstraints = false
-                    spacingView.heightAnchor.constraint(equalToConstant: 5).isActive = true
+                    spacingView.heightAnchor.constraint(equalToConstant: 10).isActive = true
                     messageStackView.addArrangedSubview(spacingView)
                 }
             }
@@ -161,6 +156,11 @@ final class ChatView: UIView {
             newMessageView.translatesAutoresizingMaskIntoConstraints = false
             newMessageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
             messageStackView.addArrangedSubview(newMessageView)
+
+            let spacingView = UIView()
+            spacingView.translatesAutoresizingMaskIntoConstraints = false
+            spacingView.heightAnchor.constraint(equalToConstant: 5).isActive = true
+            messageStackView.addArrangedSubview(spacingView)
         }
     }
 
